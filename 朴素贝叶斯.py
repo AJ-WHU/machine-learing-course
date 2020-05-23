@@ -61,7 +61,7 @@ for test_sample in X_test: # 遍历测试样本
             p_belong_to_now_class[now_class] += np.log(p_feature_now_class[feature][now_class] * test_sample[feature] + 1)
         # 这样之后，p_belong_to_now_class[now_class]里的第i个元素就是样本属于第i个类别的概率。+1是防止出现0以致无法取log
     I = np.argmax(p_belong_to_now_class) # 极大似然估计，取概率最大的类作为估计值
-    y_pred.append(I) #将该样本的最终预测结果加入y_pred
+    y_pred.append(I) # 将该样本的最终预测结果加入y_pred
 
 from sklearn.metrics import classification_report
 print("在特征数为")
