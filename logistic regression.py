@@ -11,15 +11,15 @@ from matplotlib import pyplot as plt
 import warnings
 warnings.filterwarnings('ignore')
 
-train_df = pd.read_csv('train-balanced-sarcasm.csv')
+train_df = pd.read_csv('train-balanced-sarcasm.csv') # 读取训练集数据
 train_df.head()
 train_df.info()
 train_df.dropna(subset=['comment'], inplace=True)
 train_df['label'].value_counts()
 train_texts, valid_texts, y_train, y_valid = train_test_split(train_df['comment'], train_df['label'], random_state=17)
     
-train_df.loc[train_df['label'] == 1, 'comment'].str.len().apply(np.log1p).hist(label='sarcastic', alpha=.5)
-train_df.loc[train_df['label'] == 0, 'comment'].str.len().apply(np.log1p).hist(label='normal', alpha=.5)
+train_df.loc[train_df['label'] == 1, 'comment'].str.len().apply(np.log1p).hist(label='sarcastic', alpha=.5) 
+train_df.loc[train_df['label'] == 0, 'comment'].str.len().apply(np.log1p).hist(label='normal', alpha=.5) # 分类，normal为0,sarcastic为1
 plt.legend()
 
 sub_df = train_df.groupby('subreddit')['label'].agg([np.size, np.mean, np.sum])
