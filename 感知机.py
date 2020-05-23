@@ -18,7 +18,7 @@ from sklearn.metrics import classification_report
 import numpy as np
 
 # 使用Tfidf进行文本向量化
-feature_num = 25000
+feature_num = 25000 #特征数量选择
 vectorizer = TfidfVectorizer(stop_words = stop_word, max_features = feature_num)
 train_x = vectorizer.fit_transform(train_set.data)
 test_x = vectorizer.transform(test_set.data)
