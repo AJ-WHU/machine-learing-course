@@ -35,7 +35,7 @@ X_test = test_x.toarray()
 import numpy as np
 p_class = np.zeros(20) # 1 * 20的向量，第i个元素存储第i类样本在总训练集中的比例
 p_feature_now_class = np.zeros((feature_num,20)) # 1 * 20 的向量，即P（feature|Class）
-L = 1 # 拉普拉斯平滑参数
+L = 0.5 # 拉普拉斯平滑参数
 
 # 开始训练
 for now_class in range(20): # 遍历每个类
